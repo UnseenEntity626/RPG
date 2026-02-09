@@ -6,7 +6,7 @@ function readProperty(properties: Phaser.Types.Tilemaps.TiledObject['properties'
   if (!properties) {
     return undefined;
   }
-  const found = properties.find((item) => item.name === name);
+  const found = properties.find((item: { name: string; value: unknown }) => item.name === name);
   return typeof found?.value === 'string' ? found.value : undefined;
 }
 
