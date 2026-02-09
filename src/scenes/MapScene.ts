@@ -17,7 +17,7 @@ export class MapScene extends Phaser.Scene {
   private context!: GameContext;
   private inputKeys!: InputBundle;
   private player!: Phaser.Physics.Arcade.Sprite;
-  private events: MapEvent[] = [];
+  private mapEvents: MapEvent[] = [];
   private facing: Direction = 'down';
   private dialogueBox!: Phaser.GameObjects.Rectangle;
   private dialogueText!: Phaser.GameObjects.Text;
@@ -46,10 +46,10 @@ export class MapScene extends Phaser.Scene {
     }
 
     const parsed = parseMapEvents(map);
-    this.events = parsed.events;
+    this.mapEvents = parsed.events;
 
     if (!this.textures.exists('player')) {
-      const graphics = this.make.graphics({ x: 0, y: 0, add: false });
+      const graphics = this.add.graphics();
       graphics.fillStyle(0x2b3942, 1);
       graphics.fillRect(0, 0, 24, 24);
       graphics.fillStyle(0xe4c995, 1);
@@ -222,7 +222,7 @@ export class MapScene extends Phaser.Scene {
       target.y += 1;
     }
 
-    return this.events.find((event) => event.x === target.x && event.y === target.y);
+    return this.mapEvents.find((event) => event.x === target.x && event.y === target.y);
   }
 
   private handleEventInteraction(event: MapEvent): void {

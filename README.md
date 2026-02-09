@@ -31,6 +31,14 @@ npm run test
 npm run test:e2e
 ```
 
+E2EテストはPlaywrightのブラウザ実体が必要です。制約環境でローカルブラウザを配置できない場合は、
+`PW_TEST_CONNECT_WS_ENDPOINT` に接続先ブラウザの WebSocket エンドポイントを渡すと、
+リモートブラウザ経由で実行できます。
+
+```bash
+PW_TEST_CONNECT_WS_ENDPOINT=ws://<remote-browser-endpoint> npm run test:e2e
+```
+
 ## データ構成
 
 - クエスト: `src/data/quests.json`
