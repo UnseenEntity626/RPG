@@ -1,0 +1,28 @@
+[
+  {
+    "id": "lost_apple",
+    "title": "失くしたリンゴ",
+    "steps": [
+      {
+        "id": "find_tree",
+        "condition": {
+          "trigger": "found_apple"
+        },
+        "nextStepId": "return_elder"
+      },
+      {
+        "id": "return_elder",
+        "condition": {
+          "trigger": "talk_elder"
+        }
+      }
+    ],
+    "rewards": [
+      {
+        "type": "flag",
+        "id": "elder_helped",
+        "value": true
+      }
+    ]
+  }
+]

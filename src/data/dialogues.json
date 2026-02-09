@@ -1,0 +1,85 @@
+[
+  {
+    "id": "elder_dialogue",
+    "branches": [
+      {
+        "condition": {
+          "questId": "lost_apple",
+          "questStatus": "completed"
+        },
+        "startNodeId": "elder_done"
+      },
+      {
+        "condition": {
+          "questId": "lost_apple",
+          "questStatus": "in_progress",
+          "questStepId": "return_elder"
+        },
+        "startNodeId": "elder_return"
+      },
+      {
+        "condition": {
+          "questId": "lost_apple",
+          "questStatus": "in_progress",
+          "questStepId": "find_tree"
+        },
+        "startNodeId": "elder_wait"
+      },
+      {
+        "condition": {},
+        "startNodeId": "elder_start"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "elder_start",
+        "text": "村の東にある木の近くでリンゴを落としてしまった。探してくれないか？",
+        "close": true
+      },
+      {
+        "id": "elder_wait",
+        "text": "木の根元をよく調べると見つかるはずだ。",
+        "close": true
+      },
+      {
+        "id": "elder_return",
+        "text": "おお、その顔は見つけてきたな。助かったよ！",
+        "close": true
+      },
+      {
+        "id": "elder_done",
+        "text": "また困りごとがあったら頼むよ。",
+        "close": true
+      }
+    ]
+  },
+  {
+    "id": "tree_dialogue",
+    "branches": [
+      {
+        "condition": {
+          "questId": "lost_apple",
+          "questStatus": "in_progress",
+          "questStepId": "find_tree"
+        },
+        "startNodeId": "tree_found"
+      },
+      {
+        "condition": {},
+        "startNodeId": "tree_idle"
+      }
+    ],
+    "nodes": [
+      {
+        "id": "tree_found",
+        "text": "木の根元で赤いリンゴを見つけた。長老のところへ戻ろう。",
+        "close": true
+      },
+      {
+        "id": "tree_idle",
+        "text": "大きな木だ。枝葉が風で揺れている。",
+        "close": true
+      }
+    ]
+  }
+]
