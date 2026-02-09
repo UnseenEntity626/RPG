@@ -1,4 +1,12 @@
-import { expect, test } from '@playwright/test';
+import { existsSync } from 'node:fs';
+import { chromium, expect, test } from '@playwright/test';
+
+const chromiumExecutable = chromium.executablePath();
+
+test.skip(
+  !existsSync(chromiumExecutable),
+  `Playwright chromium is not installed in this environment: ${chromiumExecutable}`
+);
 
 test('starts game and reaches map scene', async ({ page }) => {
   await page.goto('/');
